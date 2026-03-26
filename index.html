@@ -1,24 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DiablOMG</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/17.0.2/umd/react.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/17.0.2/umd/react-dom.production.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DiablOMG! Comics</title>
+  <meta name="description" content="Daily Agent and DiablOMG! comics. Dark fantasy satire with a simple archive and gallery." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div id="root"></div>
-    <script type="text/babel">
-        const App = () => {
-            return (
-                <div>
-                    <h1>Hello, DiablOMG!</h1>
-                </div>
-            );
-        };
-        ReactDOM.render(<App />, document.getElementById('root'));
-    </script>
+  <div class="page-glow"></div>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo-link" href="#top" aria-label="DiablOMG! Comics home">
+        <div class="logo-slot" id="logoSlot">
+          <div class="logo-text" id="logoText">
+            <span class="logo-main">DiablOMG!</span>
+            <span class="logo-sub">COMICS</span>
+          </div>
+          <img id="logoImage" class="logo-image hidden" alt="DiablOMG! Comics logo" />
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="#latest">Latest</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#archive">Archive</a>
+        <a href="#support">Support</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="wrap site-main">
+    <section id="latest" class="hero-grid">
+      <article class="hero-card panel">
+        <div class="hero-image-wrap">
+          <img id="heroImage" src="assets/featured-placeholder.jpg" alt="Latest comic preview" class="hero-image" />
+          <div class="hero-overlay"></div>
+          <div class="hero-copy">
+            <span class="eyebrow">Latest Comic</span>
+            <h1 id="heroTitle">Today's Comic</h1>
+            <p id="heroDate" class="hero-date"></p>
+          </div>
+        </div>
+        <div class="hero-body">
+          <p id="heroDescription">
+            The newest comic gets the hero spot up top. Because making readers hunt for the latest post would be deranged even by internet standards.
+          </p>
+          <div class="button-row">
+            <button id="readLatestBtn" class="btn btn-primary">Read Comic</button>
+            <a href="#archive" class="btn btn-secondary">Browse Archive</a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="side-stack">
+        <section class="panel info-card">
+          <span class="eyebrow">Logo Area</span>
+          <h2>Replaceable later</h2>
+          <p>
+            This header is built so you can swap text for an image logo whenever you want. No need to rip the site apart just because branding had another dramatic transformation.
+          </p>
+          <div class="mini-note">
+            Edit <code>siteConfig.logoMode</code> in <code>script.js</code> and drop your logo file into the <code>assets</code> folder later.
+          </div>
+        </section>
+
+        <section id="support" class="panel support-card">
+          <span class="eyebrow">Support</span>
+          <h2>Fuel the comic habit</h2>
+          <p>
+            Replace the placeholder with your real Venmo link and this becomes a working support button. Clean, obvious, and not annoyingly desperate.
+          </p>
+          <a id="donateButton" class="btn btn-light full-width" href="https://venmo.com/yourname" target="_blank" rel="noreferrer">Donate via Venmo</a>
+        </section>
+      </aside>
+    </section>
+
+    <section id="viewer" class="panel viewer-section">
+      <div class="viewer-head">
+        <div>
+          <span class="eyebrow">Comic Viewer</span>
+          <h2 id="viewerTitle">Server Merge Support Group</h2>
+          <p id="viewerMeta" class="viewer-meta"></p>
+        </div>
+        <div class="viewer-nav">
+          <button id="prevComicBtn" class="btn btn-secondary">← Previous</button>
+          <button id="nextComicBtn" class="btn btn-secondary">Next →</button>
+        </div>
+      </div>
+
+      <div class="viewer-image-wrap">
+        <img id="viewerImage" src="assets/featured-placeholder.jpg" alt="Selected comic" class="viewer-image" />
+      </div>
+      <p id="viewerExcerpt" class="viewer-excerpt"></p>
+    </section>
+
+    <section id="gallery" class="gallery-section">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Gallery</span>
+          <h2>Latest Drops</h2>
+          <p>
+            Add a comic entry and it shows up here, in the archive, and in the viewer. A rare example of the internet behaving sensibly.
+          </p>
+        </div>
+        <div class="filters">
+          <div id="seriesFilters" class="filter-buttons"></div>
+          <label class="month-filter">
+            <span class="sr-only">Filter by month</span>
+            <select id="monthFilter"></select>
+          </label>
+        </div>
+      </div>
+
+      <div id="galleryGrid" class="gallery-grid"></div>
+    </section>
+
+    <section id="archive" class="archive-grid">
+      <article class="panel archive-panel">
+        <span class="eyebrow">Archive</span>
+        <h2>Browse by month</h2>
+        <p>
+          Every comic gets tied to a month. Readers can jump straight to what they missed instead of endlessly scrolling like cursed archaeologists.
+        </p>
+        <div id="archiveList" class="archive-list"></div>
+      </article>
+
+      <article class="panel workflow-panel">
+        <span class="eyebrow">Daily Posting</span>
+        <h2>How you update the site</h2>
+        <ol class="workflow-list">
+          <li>Drop your new comic image into the <code>assets</code> folder.</li>
+          <li>Copy one comic object in <code>script.js</code>.</li>
+          <li>Change the title, date, series, month, excerpt, and image path.</li>
+          <li>Put the newest comic first in the array so it becomes featured.</li>
+          <li>Commit and push to GitHub Pages.</li>
+        </ol>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <div>
+      <strong>DiablOMG! Comics</strong>
+      <p>Simple static gallery site built for GitHub Pages.</p>
+    </div>
+    <div class="footer-note">Update the content in one file. Humanity occasionally stumbles into efficiency.</div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
