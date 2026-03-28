@@ -1,6 +1,6 @@
 const siteConfig = {
   siteTitle: "DiablOMG! Comics",
-  logoMode: "text", // use "image" later if you want a custom logo file
+  logoMode: "image", // use "image" later if you want a custom logo file
   logoImageUrl: "assets/diablomg-logo.png",
   donateUrl: "https://venmo.com/agentonee",
   donateLabel: "Donate via Venmo",
