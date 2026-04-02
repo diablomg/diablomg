@@ -9,13 +9,13 @@ const siteConfig = {
 const comics = [
   {
     id: 1,
-    title: "Server Merge Support Group",
-    date: "2026-03-26",
-    displayDate: "March 26, 2026",
-    series: "Agent",
+    title: "April F@#!$ Day",
+    date: "2026-04-1",
+    displayDate: "April 1, 2026",
+    series: "Agent", "DiablOMG!"
     month: "March 2026",
-    image: "assets/featured-placeholder.jpg",
-    excerpt: "A featured homepage post with room for a title, full image, date, and previous or next navigation.",
+    image: "assets/mirrored.jpg",
+    excerpt: "I think I can literally hear the Mocking Laughter.",
   },
   {
     id: 2,
