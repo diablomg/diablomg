@@ -14,7 +14,7 @@ const comics = [
     displayDate: "April 1, 2026",
     series: "Agent", "DiablOMG!"
     month: "March 2026",
-    image: "assets/mirrored.jpg",
+    image: "assets/mirrored.png",
     excerpt: "I think I can literally hear the Mocking Laughter.",
   },
   {
