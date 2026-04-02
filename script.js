@@ -12,8 +12,8 @@ const comics = [
     title: "April F@#!$ Day",
     date: "2026-04-1",
     displayDate: "April 1, 2026",
-    series: "Agent", "DiablOMG!"
-    month: "March 2026",
+    series: "Agent",
+    month: "April 2026",
     image: "assets/mirrored.png",
     excerpt: "I think I can literally hear the Mocking Laughter.",
   },
